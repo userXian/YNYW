@@ -1,12 +1,9 @@
 package com.springboot.service.impl;
 
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springboot.dao.AnotationUserDao;
-import com.springboot.dao.LogDao;
 import com.springboot.entity.User;
 import com.springboot.service.UserService;
 
@@ -15,9 +12,6 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private AnotationUserDao userDao;
-
-	@Autowired
-	private LogDao logDao;
 
 	@Override
 	public boolean checkPassword(String id, String password) {
@@ -33,11 +27,6 @@ public class UserServiceImpl implements UserService {
 	public User getUser(String userId) {
 		User user = userDao.findById(userId);
 		return user;
-	}
-
-	@Override
-	public void registerLog(String userId) {
-		logDao.registerLog(userId, LocalDateTime.now());
-	}
+	}	
 
 }

@@ -26,7 +26,6 @@ public class LoginController {
 
 		boolean result = service.checkPassword(userId, password);
 		if (result) {
-			service.registerLog(userId);
 			return result;
 		}
 		return false;
