@@ -1,0 +1,34 @@
+[
+  {
+    "bookId": "b1",
+    "authorName": "a1",
+    "bookName": "bn1",
+    "educationName": "e1",
+    "quantity": 10,
+    "deleteFlg": null
+  },
+  {
+    "bookId": "b2",
+    "authorName": "a2",
+    "bookName": "bn2",
+    "educationName": "e2",
+    "quantity": 9,
+    "deleteFlg": null
+  },
+  {
+    "bookId": "b3",
+    "authorName": "a3",
+    "bookName": "bn3",
+    "educationName": "e3",
+    "quantity": 8,
+    "deleteFlg": null
+  },
+  {
+    "bookId": "b4",
+    "authorName": "a4",
+    "bookName": "bn4",
+    "educationName": "e4",
+    "quantity": 7,
+    "deleteFlg": null
+  }
+]

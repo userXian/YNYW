@@ -1,0 +1,31 @@
+<div>
+  <div class="tag-btn">
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '1'}" (click)="tagClick('1')">查询借阅</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '2'}" (click)="tagClick('2')">归还</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '3'}" (click)="tagClick('3')">图书管理</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '4'}" (click)="tagClick('4')">日志</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '5'}" (click)="tagClick('5')">排行榜</button>
+  </div>
+  <hr/>
+
+  <div class="table-responsive col-sm-9" *ngIf="logs">
+    <table class="table table-striped table-hover">
+      <thead>
+        <th>用户名</th>
+        <th>用户ID</th>
+        <th>权限</th>
+        <th>登录时间</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let log of logs">
+          <td>{{log.userId}}</td>
+          <td>{{log.userName}}</td>
+          <td>{{log.authority}}</td>
+          <td>{{log.registerDatetime}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

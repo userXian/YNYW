@@ -1,0 +1,60 @@
+.tag-btn {
+  margin: auto;
+  margin-top: 50px;
+  display: block;
+  width: 510px;
+
+  .btn {
+    margin-right: 13px;
+    border-radius: 6px 6px 0 0;
+  }
+}
+
+hr {
+  margin-top: 0px;
+  border-top: 3px solid #337ab7;
+}
+
+.form-horizontal {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: initial;
+
+  .btn-area {
+    display: flex;
+    float: initial;
+    width: 300px;
+
+    .btn {
+      margin-right: 25px;
+    }
+  }
+
+  .modal-btn-area {
+    display: flex;
+    float: initial;
+    width: 100%;
+  }
+}
+
+.table-responsive {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  float: initial;
+
+  th {
+    text-align: center;
+  }
+
+  td {
+    text-align: center;
+  }
+}
+
+.modal-content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

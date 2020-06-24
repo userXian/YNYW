@@ -1,0 +1,76 @@
+<div>
+  <div class="tag-btn">
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '1'}" (click)="tagClick('1')">查询</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '2'}" (click)="tagClick('2')">个人信息</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '3'}" (click)="tagClick('3')">排行榜</button>
+  </div>
+  <hr/>
+  <button style="float: right" (click)="edit(template,user)">编辑</button>
+  <br />
+  <div class="table-responsive col-sm-9" *ngIf="user">
+    <label>用户名：</label>
+    {{user.userName}}
+    <br />
+    <label>邮箱：</label>
+    {{user.email}}
+    <br />
+    <label>生日：</label>
+    {{user.birthday}}
+    <br />
+    <label>性别：</label>
+    {{user.sex}}
+    <br />
+    <label>年级：</label>
+    {{user.grade}}
+    <br />
+    <label>兴趣：</label>
+    {{user.interest}}
+    <br />
+    <label>备注：</label>
+    {{user.comment}}
+</div>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">用户信息</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-content">
+    <form class="form-horizontal col-sm-10">
+      <div class="form-group">
+        <label  class="col-sm-3 control-label">用户名：</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" [(ngModel)]="selectuser.userName" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">密码：</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" [(ngModel)]="selectuser.password" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">电子邮件：</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" [(ngModel)]="selectuser.email" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">生日：</label>
+        <div class="col-sm-8">
+          <input type="date" class="form-control" [(ngModel)]="selectuser.birthday" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">自我介绍：</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" rows="5" cols="20" placeholder="请输入" [(ngModel)]="selectuser.comment" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="center-block modal-btn-area">
+        <button class="btn col-sm-5 btn-primary" (click)="save()">保存</button>
+      </div>
+    </form>
+  </div>
+</ng-template> -->

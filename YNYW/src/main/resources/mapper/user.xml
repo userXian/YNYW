@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
+<mapper namespace="com.example.demo.dao.Userdao"> 
+	<resultMap id="BaseResultMap" type="com.example.demo.Entity.user"> 
+		<result column="nameId" property="nameId" /> 
+		<result column="nameName" property="nameName" /> 
+		<result column="password" property="password" /> 
+		<result column="description" property="description" /> 
+	</resultMap> 
+ 
+ 	<sql id="Base_Column_List"> 
+ 		user_id, user_name, password,description,authority,email,birthday,sex,grade,interest,comment
+ 	</sql>  
+ 
+	<select id="findByid" resultType="com.example.demo.Entity.user" parameterType="java.lang.String"> 
+ 		select
+ 		<include refid="Base_Column_List" />
+ 		from t_user
+ 		where user_id = #{userId}
+ 	</select> 
+ 		<select id="finduser" resultType="com.example.demo.Entity.user" parameterType="java.lang.String"> 
+ 		select
+ 		<include refid="Base_Column_List" />
+ 		from t_user
+ 		where user_id = #{userId}
+ 	</select>
+ 	<update id="userupdate" parameterType="com.example.demo.Entity.user">
+ 	update t_user
+ 	<set>
+ 	 <if test="userName!=null">
+	            user_name=#{userName},
+	        </if>
+	        <if test="password!=null">
+	            password=#{password},
+	        </if>
+	        <if test="description!=null">
+	            description=#{description},
+	        </if>
+	        <if test="email!=null">
+	            email=#{email},
+	        </if>
+	        <if test="birthday!=null">
+	            birthday=#{birthday},
+	        </if>
+	        <if test="sex!=null">
+	            sex=#{sex},
+	        </if>
+	        <if test="grade!=null">
+	            grade=#{grade},
+	        </if>
+	        <if test="interest!=null">
+	            interest=#{interest},
+	        </if>
+	         <if test="comment!=null">
+	            comment=#{comment},
+	        </if>
+	    </set>
+	     where user_id=#{userId}
+ 	</update> 
+ 	<insert id="AddRecord" parameterType="com.example.demo.Entity.userRecordtime">
+ 			insert into t_log(nameId,time)
+	        values(#{nameId},#{time}) 
+ 	</insert>
+</mapper> 

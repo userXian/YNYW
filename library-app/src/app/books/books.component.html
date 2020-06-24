@@ -1,0 +1,107 @@
+<div>
+  <div class="tag-btn">
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '1'}" (click)="tagClick('1')">查询借阅</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '2'}" (click)="tagClick('2')">归还</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '3'}" (click)="tagClick('3')">图书管理</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '4'}" (click)="tagClick('4')">日志</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '5'}" (click)="tagClick('5')">排行榜</button>
+  </div>
+  <hr/>
+
+  <form class="form-horizontal col-sm-10">
+    <div class="form-group">
+      <label for="inputBookId" class="col-sm-2 control-label">图书ID</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="inputBookId" [ngModelOptions]="{standalone: true}" [(ngModel)]="bookId">
+      </div>
+      <label for="inputAuthorName" class="col-sm-2 control-label">作者</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="inputAuthorName" [ngModelOptions]="{standalone: true}" [(ngModel)]="authorName">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputBookName" class="col-sm-2 control-label">书名</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="inputBookName" [ngModelOptions]="{standalone: true}" [(ngModel)]="bookName">
+      </div>
+      <label for="inputEducationName" class="col-sm-2 control-label">出版社</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="inputEducationName" [ngModelOptions]="{standalone: true}" [(ngModel)]="educationName">
+      </div>
+    </div>
+    <div class="center-block btn-area">
+      <button class="btn col-sm-5 btn-primary" (click)="search()">检索</button>
+      <button class="btn col-sm-5 btn-primary" (click)="insert(template)">新增</button>
+    </div>
+  </form>
+  <div class="table-responsive col-sm-9" *ngIf="books">
+    <table class="table table-striped table-hover">
+      <thead>
+        <th>图书ID</th>
+        <th>书名</th>
+        <th>作者</th>
+        <th>出版社</th>
+        <th>剩余数量</th>
+        <th>操作</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td>{{ book.bookId }}</td>
+          <td>{{ book.bookName }}</td>
+          <td>{{ book.authorName }}</td>
+          <td>{{ book.educationName }}</td>
+          <td>{{ book.quantity }}</td>
+          <td><button btn btn-primary (click)="edit(template, book)">编辑</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">图书信息</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-content">
+    <form class="form-horizontal col-sm-10">
+      <div class="form-group">
+        <label  class="col-sm-3 control-label">图书ID</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" [(ngModel)]="selectedBook.bookId" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">书名</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" [(ngModel)]="selectedBook.bookName" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">作者</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" [(ngModel)]="selectedBook.authorName" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">出版社</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" [(ngModel)]="selectedBook.educationName" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">库存</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" [(ngModel)]="selectedBook.quantity" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="center-block modal-btn-area">
+        <button class="btn col-sm-5 btn-primary" (click)="save()">保存</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+

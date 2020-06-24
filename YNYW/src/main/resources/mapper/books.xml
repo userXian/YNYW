@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
+<mapper namespace="com.example.demo.dao.BooksDao"> 
+ 	<sql id="Base_Column_List"> 
+ 		book_id,author_name,education_name,book_name,quantity,delete_flg
+ 	</sql>  
+ 
+	<select id="findBook" resultType="com.example.demo.Entity.Book" parameterType="com.example.demo.Entity.Book"> 
+ 		select
+ 		<include refid="Base_Column_List" />
+ 		from t_book
+ 		<where>
+ 		<if test="bookName!=null">
+ 		and book_name like CONCAT('%',#{bookName},'%')
+ 		</if>
+ 		<if test="authorName!=null">
+ 		and author_name like CONCAT('%',#{authorName},'%')
+ 		</if>
+ 		<if test="educationName!=null">
+ 		and education_name like CONCAT('%',#{educationName},'%')
+ 		</if>
+ 		<if test="bookId!=''">
+ 		and book_id=#{bookId}
+ 		</if>
+ 		</where>
+ 	</select> 
+ 	
+ 	<insert id="Booksadd" parameterType="com.example.demo.Entity.Book">
+ 	insert into t_book(<include refid="Base_Column_List" />) 
+ 	value (#{bookId},#{authorName},#{educationName},#{bookName},#{quantity},#{deleteFlg})
+ 	</insert>
+ 	<update id="Booksupdate" parameterType="com.example.demo.Entity.Book">
+ 	update t_book
+ 	 <set>
+	        <if test="authorName!=null">
+	            author_name=#{authorName},
+	        </if>
+	        <if test="educationName!=null">
+	            education_name=#{educationName},
+	        </if>
+	        <if test="bookName!=null">
+	            book_name=#{bookName},
+	        </if>
+	        <if test="quantity!=null">
+	            quantity=#{quantity},
+	        </if>
+	    </set>
+	     where book_id=#{bookId}
+ 	</update>
+</mapper> 

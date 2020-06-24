@@ -1,0 +1,35 @@
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputUserId" class="col-sm-2 control-label">用户名</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputUserId" [ngModelOptions]="{standalone: true}" [(ngModel)]="userId">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">密&nbsp;&nbsp;码</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword" [ngModelOptions]="{standalone: true}" [(ngModel)]="password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">身&nbsp;&nbsp;份</label>
+    <div class="col-sm-10">
+      <select name="authority" class="form-control" id="inputauthority" [ngModelOptions]="{standalone: true}" [(ngModel)]="authority">
+        <option value=""></option>
+        <option value="管理员">管理员</option>
+        <option value="用户">用户</option>
+    </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-primary" (click)="login()">登录</button>
+      <button class="btn btn-primary">注册</button>
+    </div>
+  </div>
+  <alert type="danger" *ngIf="result1" dismissible="ture" [dismissOnTimeout]="5000">
+    登陆失败
+    <br />
+    5秒钟后会消失或点击旁边的x继续操作
+  </alert>
+</form>
