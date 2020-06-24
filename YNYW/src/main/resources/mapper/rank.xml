@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
+<mapper namespace="com.example.demo.dao.RankDao"> 
+
+ 
+	<select id="getNum" resultType="int"> 
+ 		select count(*) from (select DISTINCT(user_id) from t_rental) as a
+		UNION
+		select count(*) from (select DISTINCT(book_id) from t_rental) as b
+ 	</select> 
+ 	<select id="getBooks" resultType="com.example.demo.Entity.RankBook"> 
+ 		select t_book.book_name bookName, t_book.author_name authorName, count(t_rental.user_id) cnt 
+ 		from t_rental join t_book on t_rental.book_id = t_book.book_id
+ 		group by t_rental.book_id
+ 		order by count(t_retal.user_id) desc
+ 		limit #{0}, #{1}
+ 	</select> 
+ 	<select id="getReaders" resultType="com.example.demo.Entity.RankReader"> 
+ 		select t_user.user_name readerName, count(t_rental.book_id) cnt 
+ 		from t_rental join t_user on t_rental.user_id = t_user.user_id
+ 		group by t_rental.user_id
+ 		order by count(t_rental.book_id) desc
+ 		limit #{0}, #{1}
+ 	</select> 
+</mapper> 
