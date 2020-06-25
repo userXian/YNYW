@@ -23,6 +23,10 @@ public class DetailsServiceimpl implements DetailsService{
 
 	@Override
 	public boolean insetrental(rental rental) {
+		rental rental1=detailsDao.revertselect(rental);
+		if(rental1!=null) {
+			return false;
+		}
 		Book book=detailsDao.find(rental.getBookId());
 		if(book.getQuantity()<=0) {
 			return false;
@@ -39,6 +43,23 @@ public class DetailsServiceimpl implements DetailsService{
 		}else {
 			return false;
 		}
+	}
+
+	@Override
+	public int revert(rental rental) {
+		
+		rental rental1=detailsDao.revertselect(rental);
+		if(rental1!=null) {
+			Book book=detailsDao.find(rental.getBookId());
+			book.setQuantity(book.getQuantity()+1);
+			int row1=detailsDao.updatebook(book);
+			if(row1>0) {
+			    return 1;
+			}else {
+				return 0;
+			}
+		}
+		return 2;
 	}
 
 }

@@ -66,7 +66,7 @@ public class LogAsPect {
 	private void insertLog(String userId ,String time) {
 		userRecordtime recordtime= new userRecordtime();
 		recordtime.setUserId(userId);
-		recordtime.setRegisterDatetime(time);
+		//recordtime.setRegisterDatetime(time);
 		logservice.insertLog(recordtime);
 		log.info("记录成功！");
 	}

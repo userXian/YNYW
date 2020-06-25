@@ -1,0 +1,27 @@
+<div>
+  <div class="tag-btn">
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '1'}" (click)="tagClick('1')">查询借阅</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '2'}" (click)="tagClick('2')">归还</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '3'}" (click)="tagClick('3')">图书管理</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '4'}" (click)="tagClick('4')">日志</button>
+    <button class="btn btn-lg btn-primary" [ngClass]="{'btn-primary': type === '5'}" (click)="tagClick('5')">排行榜</button>
+  </div>
+  <hr/>
+
+  <form class="form-horizontal col-sm-10">
+    <div class="form-group">
+      <label for="inputUserId" class="col-sm-2 control-label">用户ID</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="inputUserId" [ngModelOptions]="{standalone: true}" [(ngModel)]="userId">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputBookId" class="col-sm-2 control-label">图书ID</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="inputBookId" [ngModelOptions]="{standalone: true}" [(ngModel)]="bookId">
+      </div>
+    </div>
+    <div class="center-block btn-area">
+      <button class="btn col-sm-5 btn-primary" (click)="search()">归还</button>
+    </div>
+  </form>

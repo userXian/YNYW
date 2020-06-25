@@ -14,5 +14,6 @@ public interface DetailsDao {
 	public Book find(String bookId);
 	public int insetrental(rental rental);
     public int updatebook(Book book);
+    public rental revertselect(rental rental);
 	
 }

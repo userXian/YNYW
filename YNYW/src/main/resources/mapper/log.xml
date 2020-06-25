@@ -6,5 +6,8 @@
  			insert into t_log(user_id,register_datetime)
 	        values(#{userId},#{registerDatetime}) 
  	</insert>
+ 	<select id="logs" resultType="com.example.demo.Entity.logs">
+ 	select t_log.user_id,user_name,authority,register_datetime from t_user join t_log on t_user.user_id=t_log.user_id
+ 	</select>
 
 </mapper>

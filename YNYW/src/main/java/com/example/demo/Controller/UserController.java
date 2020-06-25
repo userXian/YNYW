@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Entity.user;
 import com.example.demo.Entity.userRecordtime;
+import com.example.demo.Service.LogService;
 import com.example.demo.Service.Userservice;
+import com.example.demo.Service.impl.LogServiceimpl;
 import com.example.demo.config.Log;
 
 import io.swagger.annotations.Api;
@@ -26,7 +28,10 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 public class UserController {
 	@Autowired
-	Userservice Userserviceimpl;
+	Userservice Userserviceimpl; 
+	
+	@Autowired
+	LogService LogServiceimpl;
 	
 	@ApiOperation(value = "登录", notes = "这是一个登录功能，通过从用户请求获取用户名和密码进行登录")
 	@ApiImplicitParams(value = {
@@ -45,6 +50,15 @@ public class UserController {
 		System.out.print(authority);
 		int enter=0;
 		enter=Userserviceimpl.userEnter(userId,password,authority);
+		if(enter>0) {
+			SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+	    	Date date = new Date(System.currentTimeMillis());
+	    	String time=formatter.format(date);
+	    	userRecordtime recordtime= new userRecordtime();
+	    	recordtime.setUserId(userId);
+			recordtime.setRegisterDatetime(date);
+			LogServiceimpl.insertLog(recordtime);
+		}
 		System.out.print(enter);
 		return enter;
 	}

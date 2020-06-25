@@ -5,7 +5,10 @@ import { Book } from '../interfaces/book.interface';
 
 const navigateMap = {
   1: 'details',
-  3: 'books'
+  2: 'revert',
+  3: 'books',
+  4: 'log',
+  5: 'rank'
 };
 
 @Component({
@@ -60,7 +63,6 @@ export class DetailsComponent {
      (result:boolean)=>{
       if(result){
         alert('借阅成功');
-        this.router.navigate(['details']);
       }else{
         alert('借阅失败');
       }

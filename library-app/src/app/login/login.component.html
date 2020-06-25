@@ -24,7 +24,7 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button class="btn btn-primary" (click)="login()">登录</button>
-      <button class="btn btn-primary">注册</button>
+      <button class="btn btn-primary" (click)="re()">注册</button>
     </div>
   </div>
   <alert type="danger" *ngIf="result1" dismissible="ture" [dismissOnTimeout]="5000">

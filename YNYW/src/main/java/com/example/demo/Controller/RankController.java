@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +14,8 @@ import com.example.demo.Entity.RankBook;
 import com.example.demo.Entity.RankReader;
 import com.example.demo.Service.RankService;
 
-@RestController("/rank")
+@CrossOrigin(origins = { "http://localhost:4200", "null" })
+@RestController()
 public class RankController {
 	@Autowired
 	RankService rankService;

@@ -6,7 +6,10 @@ import { BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
 
 const navigateMap = {
   1: 'details',
-  3: 'books'
+  2: 'revert',
+  3: 'books',
+  4: 'log',
+  5: 'rank'
 };
 
 @Component({

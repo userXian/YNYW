@@ -34,5 +34,9 @@ public class DetailsController {
 		return DetailsServiceimpl.insetrental(rental);
 		
 	}
-	
+	@PostMapping("/revert")
+	@ResponseBody
+	public int Revert(@RequestBody rental rental) {
+		return DetailsServiceimpl.revert(rental);
+	}
 }

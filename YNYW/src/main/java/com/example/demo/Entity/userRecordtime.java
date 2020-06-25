@@ -1,19 +1,22 @@
 package com.example.demo.Entity;
 
+import java.util.Date;
+
 public class userRecordtime {
 	String userId;
-	String registerDatetime;
+	Date registerDatetime;
 	public String getUserId() {
 		return userId;
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public String getRegisterDatetime() {
+	public Date getRegisterDatetime() {
 		return registerDatetime;
 	}
-	public void setRegisterDatetime(String registerDatetime) {
+	public void setRegisterDatetime(Date registerDatetime) {
 		this.registerDatetime = registerDatetime;
 	}
+
 	
 }

@@ -7,6 +7,9 @@ import { AuthGuard } from './auth/auth.guard'
 import { DetailsuserComponent } from './detailsuser/detailsuser.component';
 import { UserComponent } from './user/user.component';
 import { LogComponent } from './log/log.component';
+import { RankComponent } from './rank/rank.component';
+import { RevertComponent } from './revert/revert.component';
+import { ReComponent } from './re/re.component';
 
 const routes: Routes = [
    
@@ -16,7 +19,10 @@ const routes: Routes = [
   {path: 'books', component: BooksComponent,canActivate:[AuthGuard]},
   {path: 'detailsuser', component: DetailsuserComponent,canActivate:[AuthGuard]},
   {path: 'user', component: UserComponent,canActivate:[AuthGuard]},
-  {path: 'log', component: LogComponent,canActivate:[AuthGuard]}
+  {path: 'log', component: LogComponent,canActivate:[AuthGuard]},
+  {path: 'rank', component: RankComponent,canActivate:[AuthGuard]},
+  {path: 'revert', component: RevertComponent,canActivate:[AuthGuard]},
+  {path: 're', component: ReComponent}
 ];
 
 @NgModule({

@@ -32,4 +32,7 @@ export class LoginComponent {
        }
      });
   }
+  public re(){
+    this.router.navigate(['re']);
+  }
 }

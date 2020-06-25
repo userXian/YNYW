@@ -22,6 +22,12 @@ import { UserComponent } from './user/user.component';
 import { UserService } from './service/user.service';
 import { LogComponent } from './log/log.component';
 import { LogService } from './service/log.service';
+import { RankComponent } from './rank/rank.component';
+import { RankService } from './service/rank.service';
+import { RevertComponent } from './revert/revert.component';
+import { RevertService } from './service/revert.service';
+import { ReComponent } from './re/re.component';
+import { ReService } from './service/re.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,10 @@ import { LogService } from './service/log.service';
     HeaderComponent,
     DetailsuserComponent,
     UserComponent,
-    LogComponent
+    LogComponent,
+    RankComponent,
+    RevertComponent,
+    ReComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,7 @@ import { LogService } from './service/log.service';
     ModalModule.forRoot(),
     AlertModule.forRoot()
   ],
-  providers: [LoginService, DetailsService, BooksService,AuthService,AuthGuard,UserService,LogService],
+  providers: [LoginService, DetailsService, BooksService,AuthService,AuthGuard,UserService,LogService,RankService,RevertService,ReService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

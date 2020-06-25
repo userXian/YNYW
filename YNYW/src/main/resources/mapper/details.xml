@@ -35,4 +35,10 @@
  	<update id="updatebook" parameterType="com.example.demo.Entity.Book">
     update t_book set quantity=#{quantity} where book_id=#{bookId}
  	</update>
+ 	<select id="revertselect" parameterType="com.example.demo.Entity.rental" resultType="com.example.demo.Entity.rental">
+ 	select * from t_rental where user_id=#{userId} and book_id=#{bookId}
+ 	</select>
+ 	<update id="revertupdate">
+ 	update t_book set quantity=#{quantity} where book_id=#{bookId}
+ 	</update>
 </mapper> 

@@ -1,5 +1,7 @@
 package com.example.demo.Service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,12 @@ public class LogServiceimpl implements LogService{
 	public int insertLog(userRecordtime recordtime) {
 		
 		return logdao.AddLog(recordtime);
+	}
+
+	@Override
+	public List logs() {
+		
+		return logdao.logs();
 	}
 	
 }

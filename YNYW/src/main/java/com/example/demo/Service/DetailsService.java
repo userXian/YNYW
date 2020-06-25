@@ -9,5 +9,6 @@ public interface DetailsService {
 
 	public List<Book> findBook(Book book);
 	public boolean insetrental(rental rental);
+	public int revert(rental rental);
 	
 }

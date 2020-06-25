@@ -1,0 +1,64 @@
+<div class="modal-content" style="display:block;margin:0 auto;width: 500px;height: 500px;">
+  <form class="form-horizontal col-sm-10">
+    <div class="form-group">
+      <label  class="col-sm-3 control-label">用户名：</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">密码：</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">电子邮件：</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">生日：</label>
+      <div class="col-sm-8">
+        <input type="date" class="form-control" [(ngModel)]="birthday" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">性别：</label>
+      <div class="col-sm-8">
+        <input type="radio" name="sex" value="男" id="typesex"  [(ngModel)]="sex" [ngModelOptions]="{standalone: true}" checked/>男
+        <input type="radio" name="sex" value="女"  [(ngModel)]="sex" [ngModelOptions]="{standalone: true}"/>女
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">年级：</label>
+      <div class="col-sm-8">
+        <select name="grade" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="grade">
+          <option value=""></option>
+          <option value="大学一年级">大学一年级</option>
+          <option value="大学二年级">大学二年级</option>
+          <option value="大学三年级">大学三年级</option>
+          <option value="大学四年级">大学四年级</option>
+      </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">兴趣：</label>
+      <div class="col-sm-8">
+        <input type="checkbox" name="interest" value="电影" [ngModelOptions]="{standalone: true}" [(ngModel)]="interest1"/>电影
+        <input type="checkbox" name="interest" value="唱歌" [ngModelOptions]="{standalone: true}" [(ngModel)]="interest2"/>唱歌
+        <input type="checkbox" name="interest" value="读书" [ngModelOptions]="{standalone: true}" [(ngModel)]="interest3"/>读书
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">自我介绍：</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" rows="5" cols="20" placeholder="请输入" [(ngModel)]="comment" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="center-block modal-btn-area">
+      <button class="btn col-sm-5 btn-primary" (click)="save()">注册</button>
+    </div>
+  </form>
+</div>
