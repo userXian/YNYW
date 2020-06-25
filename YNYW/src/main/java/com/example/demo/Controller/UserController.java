@@ -47,7 +47,7 @@ public class UserController {
 		String userId=user.getUserId();
 		String password=user.getPassword();
 		String authority=user.getAuthority();
-		System.out.print(authority);
+		System.out.println(authority);
 		int enter=0;
 		enter=Userserviceimpl.userEnter(userId,password,authority);
 		if(enter>0) {
@@ -59,7 +59,7 @@ public class UserController {
 			recordtime.setRegisterDatetime(date);
 			LogServiceimpl.insertLog(recordtime);
 		}
-		System.out.print(enter);
+		System.out.println(enter);
 		return enter;
 	}
 	

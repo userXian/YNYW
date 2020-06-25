@@ -20,8 +20,9 @@ public class RankServiceImpl implements RankService{
 	public Map<String, Integer> getNum() {
 		Map<String, Integer> map = new HashMap<>();
 		List<Integer> res = rankDao.getNum();
-		map.put("bookNum", res.get(0));
-		map.put("readerNum", res.get(1));
+		if (res.size() == 1) res.add(res.get(0));
+		map.put("readerNum", res.get(0));
+		map.put("bookNum", res.get(1));
 		return map;
 	}
 

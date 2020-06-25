@@ -7,14 +7,14 @@ export class RankService {
   constructor(private httpClient: HttpClient) {}
 
     public getNum() {
-      return this.httpClient.post('http://localhost:8080/getnum', {});
+      return this.httpClient.post('http://localhost:8080/rank/getnum', {});
     }
 
     public getBooks(data) {
-      return this.httpClient.post("http://localhost:8080/getbooks", data)
+      return this.httpClient.post("http://localhost:8080/rank/getbooks", data)
     }
     public getReaders(data) {
-      return this.httpClient.post("http://localhost:8080/getreaders", data)
+      return this.httpClient.post("http://localhost:8080/rank/getreaders", data)
     }
   }
 
