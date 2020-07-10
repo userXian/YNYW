@@ -26,7 +26,7 @@ export class RankComponent implements OnInit {
   readerNum = 0;
   books = null;
   readers = null;
-  PAGE_SIZE = 2;
+  PAGE_SIZE = 10;
   bookPageIndex = 0;
   readerPageIndex = 0;
   bookPageNum = [];
@@ -88,9 +88,7 @@ export class RankComponent implements OnInit {
             });
   }
 
-  public isActiveBookPage(page) {
-    console.log(page);
-    
+  public isActiveBookPage(page) {    
     if(this.bookPageIndex == page - 1) return 1;
     return 0;
   }
@@ -101,8 +99,6 @@ export class RankComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.books = [{bookName:"孤独时间", cnt:11, authorName:"张三"},{bookName:"孤独时间", cnt:11, authorName:"张三"},{bookName:"孤独时间", cnt:11, authorName:"张三"},{bookName:"孤独时间", cnt:11, authorName:"张三"}]
-    console.log('start....');
     this.rankService.getNum().subscribe((res: any) => {
       this.bookNum = res['bookNum'];
       this.readerNum = res['readerNum'];
@@ -114,9 +110,6 @@ export class RankComponent implements OnInit {
       for(let i = 0;i < readerNum;i++) {
         this.readerPageNum.push(i+1);
       }
-      console.log(res);
-      console.log(this.bookPageNum);
-      console.log(this.readerPageNum);
 
       // {bookName:"XX", cnt: 10, authorName:zz
       // {readerName:"XX", cnt: 100}
@@ -131,8 +124,6 @@ export class RankComponent implements OnInit {
             })
             .subscribe((re: any) => {
               this.readers = re;
-              console.log(this.books);
-              console.log(this.readers);
             });
         });
     });
